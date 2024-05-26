@@ -1,0 +1,22 @@
+[package]
+name = "twitter_nft"
+version = "0.1.0"
+edition = "2023_11"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
+
+[dependencies]
+starknet = "2.4.4"
+openzeppelin = { git = "https://github.com/OpenZeppelin/cairo-contracts.git", tag = "v0.13.0" }
+custom_uri = { git = "https://github.com/starknet-id/custom_uri_component", rev = "e59d4d00cfecccb1681fad1862eb835df76184cf" }
+
+[[target.starknet-contract]]
+sierra = true
+casm = true
+casm-add-pythonic-hints = true
+
+[lib]
+sierra = true
+casm = false
+
+
