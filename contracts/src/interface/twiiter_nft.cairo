@@ -2,11 +2,12 @@ use starknet::ContractAddress;
 
 #[starknet::interface]
 trait ITwitterNft<TContractState> {
-    fn mint(ref self: TContractState, token_id: u256, value: u256, sig: (felt252, felt252));
-
-    fn batched_mint(
-        ref self: TContractState, token_ids: Span<u256>, values: Span<u256>, sig: (felt252, felt252)
+    // admin
+    fn admin_mint(
+        ref self: TContractState, token_id: u256, receiver: ContractAddress ,tweet_id: u256 
     );
+
+    fn set_asset_cap(ref self: TContractState,token_id: u256,asset_cap: u256);
 
     // admin
     fn enable_contract(ref self: TContractState);
@@ -18,4 +19,9 @@ trait ITwitterNft<TContractState> {
         ref self: TContractState, from: ContractAddress, to: ContractAddress, token_id: u256
     );
     fn get_existing_supply(self: @TContractState, token_id: u256) -> u256;
+    fn get_asset_cap(self: @TContractState, token_id: u256) -> u256;
+
+    fn set_base_uri(ref self: TContractState, base_uri: ByteArray);
+
+    fn supportsInterface(self: @TContractState,interface_id: felt252) -> bool;
 }

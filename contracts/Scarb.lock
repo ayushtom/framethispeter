@@ -12,7 +12,7 @@ version = "0.13.0"
 source = "git+https://github.com/OpenZeppelin/cairo-contracts.git?tag=v0.13.0#978b4e75209da355667d8954d2450e32bd71fe49"
 
 [[package]]
-name = "twitter_nft"
+name = "twitter_nft_contract"
 version = "0.1.0"
 dependencies = [
  "custom_uri",
